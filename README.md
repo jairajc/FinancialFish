@@ -24,6 +24,12 @@
 
 </div>
 
+---
+
+> **This is a personal fork.** This repo is being developed into **Prediction Market Oracle** -- a wrapper built on MiroFish that uses multi-agent social contagion simulation to gain edge in prediction markets (Polymarket, Kalshi). See [README-EN.md](./README-EN.md) for the full project vision and roadmap.
+
+---
+
 ## ⚡ 项目概述
 
 **MiroFish** 是一款基于多智能体技术的新一代 AI 预测引擎。通过提取现实世界的种子信息（如突发新闻、政策草案、金融信号），自动构建出高保真的平行数字世界。在此空间内，成千上万个具备独立人格、长期记忆与行为逻辑的智能体进行自由交互与社会演化。你可透过「上帝视角」动态注入变量，精准推演未来走向——**让未来在数字沙盘中预演，助决策在百战模拟后胜出**。

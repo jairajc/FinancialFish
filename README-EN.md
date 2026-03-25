@@ -24,6 +24,112 @@
 
 </div>
 
+---
+
+# Prediction Market Oracle
+
+**A wrapper built on MiroFish that uses multi-agent social contagion simulation to gain edge in prediction markets.**
+
+> This is a personal fork of [MiroFish](https://github.com/666ghj/MiroFish). The original MiroFish documentation is preserved below.
+
+## The Problem
+
+Prediction markets (Polymarket, Kalshi) are a $9B+ industry where the top 1% of traders make six to seven figures annually while 70% lose money. The #1 source of consistent edge is **information advantage** -- knowing something the market hasn't priced in yet.
+
+Most prediction markets aren't about what will happen physically. They're about **what people will collectively do, think, or decide**:
+
+- "Will approval ratings be above X% by date Y?" -- a question about public opinion dynamics
+- "Will party Z win the midterms?" -- driven by voter sentiment and turnout
+- "Will policy W be enacted?" -- depends on public pressure and political will
+- "Will there be protests in country V?" -- pure social contagion
+
+Every existing tool attacks this from the wrong angle. Sentiment trackers (Santiment, LunarCrush) are **reactive** -- they detect what's already happening. Price predictors use statistical models with no understanding of social dynamics. Prediction market arbitrage bots compete on millisecond speed. None of them simulate **how people will actually behave**.
+
+## The Edge: Second-Order Reasoning
+
+Prediction market edge exists in three tiers:
+
+| Tier | Window | Who Wins |
+|------|--------|----------|
+| **Speed** (react to news) | 0-15 seconds | HFT bots. You can't compete here. |
+| **Information** (know something) | minutes-hours | Journalists, insiders. Competitive. |
+| **Second-order reasoning** (predict how the public will react) | hours-weeks | **Nobody is doing this well. This is the gap.** |
+
+MiroFish is a **second-order reasoning machine**. It doesn't predict outcomes directly. It simulates *how thousands of psychologically distinct humans will react to a scenario*, observes the emergent collective behavior, and derives predictions from that.
+
+## How It Works
+
+```
+1. IDENTIFY  -->  Find a prediction market with a social dynamics component
+                  (political, geopolitical, policy, public opinion)
+
+2. FEED      -->  Upload relevant context as seed material
+                  (news articles, polling data, policy docs, candidate profiles)
+
+3. SIMULATE  -->  MiroFish auto-generates:
+                  - Knowledge graph of all relevant actors
+                  - Thousands of agents (voters, media, politicians, activists,
+                    undecided moderates, influencers) with distinct psychologies
+                  - Dual-platform social simulation (Twitter + Reddit dynamics)
+
+4. OBSERVE   -->  Watch emergent patterns:
+                  - Does the narrative consolidate or fragment?
+                  - Which counter-narratives gain traction?
+                  - Do persuadable actors shift?
+                  - What's the sentiment trajectory over simulated weeks?
+
+5. BET       -->  When simulation probability diverges from market price,
+                  you have a genuine information edge.
+```
+
+## What Gets Built (Wrapper Components)
+
+| Component | Purpose |
+|-----------|---------|
+| **Prediction Market Connector** | Scrape active markets from Polymarket/Kalshi APIs, extract questions, current odds, volume, time-to-resolution |
+| **Scenario Packager** | Auto-gather relevant context for a market question and format as MiroFish seed material |
+| **Calibrated Agent Templates** | Pre-built persona libraries for political simulations (swing voters, partisan media, activists, donors, officials, undecided moderates) |
+| **Probability Extractor** | Post-simulation analysis converting emergent social dynamics into calibrated probability estimates |
+| **Bet Recommender** | Flag opportunities when simulation probability diverges from market price beyond a threshold |
+
+## Competitive Landscape
+
+| Tool | What It Does | What It Doesn't Do |
+|------|-------------|-------------------|
+| **TwinMarket** (ICLR Best Paper) | Simulates order books + social sentiment with BDI agents | Needs real historical data; can't simulate reaction to a hypothetical future event |
+| **PolySwarm** | 12 agents debate predictions | Agents argue about prices, don't simulate social contagion patterns |
+| **ElectionSim / FlockVote** | Academic election simulation papers | Not trading tools, no market connection |
+| **Sentiment Trackers** (Santiment, etc.) | Monitor existing social signals | Purely reactive, can't predict what hasn't started |
+| **ForecastIX** | Submits article, predicts price direction | Single-model, no emergent social dynamics |
+
+None of these simulate emergent social dynamics from hypothetical scenarios with thousands of diverse agents.
+
+## Roadmap
+
+**Phase 1 -- Personal Profit (months 1-6)**
+- Focus on political and geopolitical prediction markets (highest volume, most dependent on social dynamics, longest duration = most mispricing)
+- Run MiroFish simulations before every bet
+- Track hit rate vs. market consensus
+- Target: verifiable on-chain track record on Polymarket
+
+**Phase 2 -- Prove It (months 3-9)**
+- Public track record (Polymarket wallet is transparent on-chain)
+- Document every simulation -> bet -> outcome
+- The verified profit IS the marketing
+
+**Phase 3 -- Sell the Product (month 6+)**
+- Signal service: simulation-backed prediction market picks
+- SaaS tool: traders run their own simulations against any market
+- API: for quant teams and prediction market funds
+- Consulting: custom scenario analysis for institutional desks
+
+---
+---
+
+# Original MiroFish Documentation
+
+> Everything below is the original MiroFish documentation from the upstream project.
+
 ## ⚡ Overview
 
 **MiroFish** is a next-generation AI prediction engine powered by multi-agent technology. By extracting seed information from the real world (such as breaking news, policy drafts, or financial signals), it automatically constructs a high-fidelity parallel digital world. Within this space, thousands of intelligent agents with independent personalities, long-term memory, and behavioral logic freely interact and undergo social evolution. You can inject variables dynamically from a "God's-eye view" to precisely deduce future trajectories — **rehearse the future in a digital sandbox, and win decisions after countless simulations**.
